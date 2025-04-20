@@ -1625,7 +1625,8 @@ display: none;
 
 
 <pre class="r"><code>library(readxl)
-Howells_Dataset_COPY &lt;- read_excel(&quot;R Files/Howells Dataset COPY.xlsx&quot;)
+Howells_Dataset_COPY &lt;- read_excel(&quot;Howells Dataset COPY.xlsx&quot;)
+View(Howells_Dataset_COPY)
 Japan= Howells_Dataset_COPY
 
 # NLB, ZYB, and ZMB are facial measurements
@@ -1802,6 +1803,17 @@ corrplot(Japanpairwise)</code></pre>
 ##  Mean   :129.6   Mean   : 95.27  
 ##  3rd Qu.:133.5   3rd Qu.: 99.00  
 ##  Max.   :141.0   Max.   :106.00</code></pre>
+<pre class="r"><code>#Corr numerical
+measurementsonly=c(Japan$GOL, Japan$XCB, Japan$FRC, Japan$NLB, Japan$ZYB, Japan$ZMB)
+Numcorr= data.frame(Japan$GOL, Japan$XCB, Japan$FRC, Japan$NLB, Japan$ZYB, Japan$ZMB)
+print(cor(Numcorr))</code></pre>
+<pre><code>##           Japan.GOL Japan.XCB Japan.FRC Japan.NLB Japan.ZYB Japan.ZMB
+## Japan.GOL 1.0000000 0.3146861 0.7541691 0.3731054 0.6488147 0.5765975
+## Japan.XCB 0.3146861 1.0000000 0.3282021 0.1866926 0.6360117 0.4095589
+## Japan.FRC 0.7541691 0.3282021 1.0000000 0.2698862 0.5393540 0.5269047
+## Japan.NLB 0.3731054 0.1866926 0.2698862 1.0000000 0.3223366 0.3351822
+## Japan.ZYB 0.6488147 0.6360117 0.5393540 0.3223366 1.0000000 0.7568078
+## Japan.ZMB 0.5765975 0.4095589 0.5269047 0.3351822 0.7568078 1.0000000</code></pre>
 <pre class="r"><code>#T Testing
 t.test(GOLfemale, GOLmale)</code></pre>
 <pre><code>## 

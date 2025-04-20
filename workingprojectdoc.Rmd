@@ -10,7 +10,8 @@ output:
 
 ```{r Base Data}
 library(readxl)
-Howells_Dataset_COPY <- read_excel("R Files/Howells Dataset COPY.xlsx")
+Howells_Dataset_COPY <- read_excel("Howells Dataset COPY.xlsx")
+View(Howells_Dataset_COPY)
 Japan= Howells_Dataset_COPY
 
 # NLB, ZYB, and ZMB are facial measurements
@@ -143,6 +144,13 @@ summary(NumericalJapan)
 
 ```
 
+```{r}
+#Corr numerical
+measurementsonly=c(Japan$GOL, Japan$XCB, Japan$FRC, Japan$NLB, Japan$ZYB, Japan$ZMB)
+Numcorr= data.frame(Japan$GOL, Japan$XCB, Japan$FRC, Japan$NLB, Japan$ZYB, Japan$ZMB)
+print(cor(Numcorr))
+
+```
 
 
 ```{r}
